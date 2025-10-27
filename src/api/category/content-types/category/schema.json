@@ -17,6 +17,12 @@
     },
     "slug": {
       "type": "uid"
+    },
+    "blogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog.blog",
+      "mappedBy": "category"
     }
   }
 }

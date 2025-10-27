@@ -51,6 +51,9 @@
     },
     "excerpt": {
       "type": "text"
+    },
+    "content": {
+      "type": "blocks"
     }
   }
 }

@@ -17,7 +17,8 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "title",
+      "required": true
     },
     "author": {
       "type": "relation",
@@ -37,7 +38,8 @@
       "inversedBy": "blogs"
     },
     "publishedDate": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "image": {
       "type": "media",
@@ -53,7 +55,8 @@
       "type": "text"
     },
     "content": {
-      "type": "blocks"
+      "type": "blocks",
+      "required": true
     },
     "comments": {
       "type": "relation",

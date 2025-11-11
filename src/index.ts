@@ -1,6 +1,7 @@
 // import type { Core } from '@strapi/strapi';
 
-import seed from "../scripts/seed";
+import blogSeed from "../scripts/blogSeed";
+import productSeed from "../scripts/productSeed";
 
 export default {
   /**
@@ -21,7 +22,8 @@ export default {
   async bootstrap({ strapi }) {
     // only seed in development
     if (process.env.NODE_ENV === 'development') {
-      await seed({ strapi });
+      await blogSeed({ strapi });
+      await productSeed({ strapi });
     }
   },
 };

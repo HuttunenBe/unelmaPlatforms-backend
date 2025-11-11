@@ -55,6 +55,9 @@
       "relation": "manyToOne",
       "target": "api::product-category.product-category",
       "inversedBy": "products"
+    },
+    "rating": {
+      "type": "decimal"
     }
   }
 }

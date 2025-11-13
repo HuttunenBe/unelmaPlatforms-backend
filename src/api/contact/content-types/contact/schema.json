@@ -17,20 +17,23 @@
       "maxLength": 60,
       "required": true
     },
+    "phone": {
+      "type": "string"
+    },
     "email": {
       "type": "email",
       "required": true,
       "minLength": 5,
       "maxLength": 100
     },
-    "phone": {
-      "type": "biginteger"
-    },
     "message": {
       "type": "text",
       "minLength": 5,
       "maxLength": 1000,
       "required": true
+    },
+    "date": {
+      "type": "datetime"
     }
   }
 }

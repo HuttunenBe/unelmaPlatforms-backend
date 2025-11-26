@@ -5,6 +5,10 @@ function slugify(str: string) {
     .replace(/[^\w-]+/g, '');
 }
 
+function convertUSDToEUR(usd: number, rate = 0.92) {
+  return parseFloat((usd * rate).toFixed(2));
+}
+
 export default async ({ strapi }: { strapi: any }) => {
   console.log('🌱 Starting Product database seeding (safe mode)...');
 
@@ -72,7 +76,7 @@ But that's not all! We understand that adopting a new platform can come with its
 What if you have issues that need immediate redress? We've got you covered. The cost of one to two developers is included in the package to provide real-time solutions to any issues you may have. No more worrying about hidden fees or charges.
 
 With UnelmaMail, you receive not just a product but a reliable partnership. Make the smart choice for your email marketing strategy; choose UnelmaMail. Revolutionize the way you engage with your clients today.`,
-      price: 49.675,
+      price: convertUSDToEUR(49.675),
       rating: 5,
       SKU: '123456_UnelmaMail',
       tag: 'Popular',
@@ -95,7 +99,7 @@ We understand the importance of data security in today's digital landscape. That
 Additionally, software bugs can be frustrating and detrimental to your operations. With UnelmaCRM, our team of experts is dedicated to addressing any issues promptly. We provide regular bug fixes to ensure your CRM system runs smoothly and flawlessly.
 
 When you choose UnelmaCRM, you choose a comprehensive CRM solution that offers 1 year of full support, maintenance, hosting, SaaS, top-notch security, and bug fixes.`,
-      price: 10.95,
+      price: convertUSDToEUR(10.95),
       rating: 5,
       SKU: '123456_UnelmaCRM',
       tag: 'Popular',
@@ -118,7 +122,7 @@ But that's not all. UnelmaCloud offers much more than just exceptional support. 
 Moreover, our advanced security measures guarantee the utmost protection for your data. We employ the latest encryption protocols to safeguard your information, ensuring that it remains confidential and inaccessible to unauthorized parties.
 
 By choosing UnelmaCloud, you not only invest in a robust cloud storage solution but also gain a trusted partner that is committed to your success.`,
-      price: 24.95,
+      price: convertUSDToEUR(24.95),
       rating: 5,
       SKU: '123456_UnelmaCloud',
       tag: 'Popular',

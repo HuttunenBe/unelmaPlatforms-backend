@@ -70,6 +70,12 @@
       "relation": "manyToMany",
       "target": "api::order.order",
       "mappedBy": "products"
+    },
+    "originalPrice": {
+      "type": "decimal"
+    },
+    "shortDescription": {
+      "type": "text"
     }
   }
 }

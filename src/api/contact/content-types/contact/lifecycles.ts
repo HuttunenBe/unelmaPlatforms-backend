@@ -10,6 +10,7 @@ export default {
 
       await strapi.plugins['email'].services.email.send({
         to: email,
+        from: 'contact@beniitta-huttunen.com',
         subject: 'We received your message — Unelma',
         html: `
           <div style="font-family: Arial, sans-serif; line-height: 1.6;">
@@ -22,13 +23,7 @@ export default {
         `,
       });
     } catch (err) {
-      console.error("=== Strapi Email Error ===");
-      console.error("Name:", err.name);
-      console.error("Message:", err.message);
-      if (err.details) {
-        console.error("Details:", JSON.stringify(err.details, null, 2));
-      }
-      console.error("Full error object:", err);
+      console.error(err)
     }
   },
 };

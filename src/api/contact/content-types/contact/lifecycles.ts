@@ -1,6 +1,7 @@
 export default {
     async afterCreate(event) {
-      const { result } = event;
+     try {
+       const { result } = event;
   
       const name = result.name;
       const email = result.email;
@@ -20,6 +21,9 @@ export default {
           </div>
         `,
       });
+     } catch(err) {
+      console.error(err)
+     }
     },
   };
   

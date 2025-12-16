@@ -1,16 +1,15 @@
 export default {
-  async afterCreate(event) {
-    try {
-      const { result } = event;
-
+    async afterCreate(event) {
+     try {
+       const { result } = event;
+  
       const name = result.name;
       const email = result.email;
-
+  
       if (!email) return;
-
+  
       await strapi.plugins['email'].services.email.send({
         to: email,
-        from: 'contact@beniitta-huttunen.com',
         subject: 'We received your message — Unelma',
         html: `
           <div style="font-family: Arial, sans-serif; line-height: 1.6;">
@@ -22,8 +21,9 @@ export default {
           </div>
         `,
       });
-    } catch (err) {
+     } catch(err) {
       console.error(err)
-    }
-  },
-};
+     }
+    },
+  };
+  

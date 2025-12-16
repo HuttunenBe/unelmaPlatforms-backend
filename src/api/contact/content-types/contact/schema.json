@@ -14,22 +14,24 @@
     "name": {
       "type": "string",
       "minLength": 1,
-      "maxLength": 60,
+      "maxLength": 100,
       "required": true
     },
     "phone": {
-      "type": "string"
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 30
     },
     "email": {
       "type": "email",
       "required": true,
       "minLength": 5,
-      "maxLength": 100
+      "maxLength": 254
     },
     "message": {
       "type": "text",
       "minLength": 5,
-      "maxLength": 1000,
+      "maxLength": 2000,
       "required": true
     },
     "date": {

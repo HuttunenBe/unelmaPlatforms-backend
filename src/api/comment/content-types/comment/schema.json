@@ -26,6 +26,9 @@
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "comments"
+    },
+    "date": {
+      "type": "datetime"
     }
   }
 }

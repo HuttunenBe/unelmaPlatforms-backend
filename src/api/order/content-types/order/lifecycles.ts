@@ -1,12 +1,12 @@
 export default {
-  async afterPayment(event) {
+  async afterCreate(event) {
     try {
       const { result } = event;
 
       const name = result.name;
       const email = result.email;
-      const plan = result.plan || 'your subscription'; // optional info about the purchased plan
-      const amount = result.amount || ''; // optional payment amount
+      const plan = result.plan || 'your subscription';
+      const amount = result.amount || '';
 
       if (!email) return;
 

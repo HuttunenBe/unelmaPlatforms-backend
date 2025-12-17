@@ -3,22 +3,33 @@ export default {
     try {
       const { result } = event;
 
-      const name = result.name;
-      const email = result.email;
-      const plan = result.plan || 'your subscription';
-      const amount = result.amount || '';
-
+      const email = result.customerEmail;
       if (!email) return;
+
+      const amount = result.amountTotal ? `${result.amountTotal} ${result.currency}` : '';
+      const status = result.orderStatus || 'paid';
+      const items = result.items || [];
+      const products = result.products || [];
+
+      // Create a list of purchased products/items
+      const itemsList = items.length
+        ? items.map((i: any, idx: number) => `<li>${i.name || `Item ${idx + 1}`}</li>`).join('')
+        : products.length
+        ? products.map((p: any) => `<li>${p.name}</li>`).join('')
+        : '<li>Your order</li>';
 
       await strapi.plugins['email'].services.email.send({
         to: email,
         subject: 'Payment Received — Unelma',
         html: `
           <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-            <h2>Hi ${name || 'there'},</h2>
+            <h2>Hi there,</h2>
             <p>Thank you for your payment!</p>
-            <p>We’ve successfully received your payment for <strong>${plan}</strong>${amount ? ` of <strong>$${amount}</strong>` : ''}.</p>
-            <p>You now have full access to all features of Unelma!</p>
+            <p>Your payment has been <strong>${status}</strong> ${amount ? `for <strong>${amount}</strong>` : ''}.</p>
+            <p>Order details:</p>
+            <ul>
+              ${itemsList}
+            </ul>
             <br />
             <p>If you have any questions, feel free to reach out to our support team.</p>
             <br />

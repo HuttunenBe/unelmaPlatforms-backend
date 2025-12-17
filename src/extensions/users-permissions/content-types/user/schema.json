@@ -78,7 +78,7 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::comment.comment",
-      "mappedBy": "users_permissions_user"
+      "mappedBy": "author"
     },
     "orders": {
       "type": "relation",
@@ -101,6 +101,12 @@
         "videos",
         "audios"
       ]
+    },
+    "likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::like.like",
+      "mappedBy": "user"
     }
   }
 }

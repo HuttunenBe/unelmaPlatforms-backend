@@ -21,7 +21,7 @@
       "target": "api::blog.blog",
       "inversedBy": "comments"
     },
-    "users_permissions_user": {
+    "author": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
@@ -29,6 +29,12 @@
     },
     "date": {
       "type": "datetime"
+    },
+    "likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::like.like",
+      "mappedBy": "comment"
     }
   }
 }
